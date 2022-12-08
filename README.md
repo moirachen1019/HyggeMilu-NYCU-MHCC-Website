@@ -3,4 +3,4 @@
 
 https://act.mhcc.nycu.edu.tw/HyggeMilu/
 
-Please browse the website with cellphone
+Please browse the website with cellphone, other version is developing...
