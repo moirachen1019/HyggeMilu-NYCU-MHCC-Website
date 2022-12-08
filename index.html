@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小麋鹿的Hygge療癒日常</title>
+	<link rel="icon" href="favicon.ico.jpg" type="image/x-icon" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+	<link rel="stylesheet" href="jqueryUI/jquery-ui.css">
+	<link rel="stylesheet" href="css/normal.css">
+	<link rel="stylesheet" href="css/pages.css">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="jqueryUI/external/jquery/jquery.js"></script>
+	<script src="jqueryUI/jquery-ui.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app-compat.js"></script> <!-- -compat處理版本銜接問題 -->
+	<script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-database-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-auth-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-storage-compat.js"></script>
+	<script src="js/variables.js"></script>
+	<script src="js/database.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/dataflow.js"></script>
+	<script src="js/setting.js"></script>
+</head>
+
+<body>
+<div>
+
+	<div class="page" id="end">
+		<div class="form-content">
+			恭喜你，完成小麋鹿的探險尋寶之旅！<br>
+			在人生這條路上，隨著每個成長階段面臨的困境，我們會感受到迷茫，我們每個人都是這樣過來的，再也沒有比二十三四歲的迷茫跟絕望更理直氣壯的事情了，但是絕望的另一面，像隨著完成關卡增加的療癒值，意味著我們的承受極限又提高了一層境界，這意味著我們可以更加酣暢淋漓的面對這狗血的生活了！
+			<br><br>
+			<a href="https://docs.google.com/forms/d/e/1FAIpQLSd0SqLniRz3KCb23-_MgV3-_AtnNda-pE3qESIMA09tUvgfOQ/viewform?usp=pp_url" target="_blank"><b>立刻點擊這裡填寫表單參加抽獎吧！</b></a><br><br>
+			遊戲製作：陳存佩<br>
+			工作人員：彭思蓉 劉庭瑜 鄭雅馨 張瑜妏 黃馨儀<br>
+			美編設計：人間失腦（hgj）
+		</div>
+		<input type="image" class="go-home goback" src="img/gohome.png">
+		<a href="http://counsel.sa.nctu.edu.tw" class="website" target="new_window">陽明交大健康心理中心</a>
+	</div>
+
+	<div class="page" id="q8">
+		<h1 class="mission-title">清爽的魔幻殿堂</h1>
+		<div class="content content-margin">
+			<div class="mission-content" id="description8">
+				<article>最近的日子因為疫情多了許多未知與限制，小麋鹿發現自己面對了許多前所未有的挑戰。但神奇的是，當他學著安定在每個當下、迎接每個自我照顧或關係調適的挑戰時，不知不覺中，他竟然找到了許多珍貴寶藏！<br>
+					現在，是時候好好整理這些寶藏，讓家成為清爽的魔幻殿堂了～
+				</article>
+				<button class="button-style" onclick="goMission(8)">點擊開始探險！</button>
+			</div>
+			<div class="mission-content" id="mission8" style="display:none">
+				<article>現在，邀請你上傳一張自己整理後的桌面照片或整潔的放鬆空間照片，給小麋鹿一個好的範本，讓他知道該如何整理自己的辦公桌面或放鬆空間喔！</article><br>
+				<form>
+					<label for="img8" class="button-style">選擇檔案</label>
+					<input type="file" accept="image/*" id="img8" onchange="previewImg(8);insertImg(8)" required><br><br>
+					<img id="preview8" class="preview" src="#"/>
+					<input type="submit" class="button-style" id="q8_submit" value="完成！" onclick="goEducation(8)">
+					<input type="submit" class="button-style" id="q8_nosubmit" value="查看衛教小語！" onclick="goEducation(8)">			
+				</form>
+			</div>
+			<div class="mission-content" id="education8" style="display:none">
+				<img src="img/q8.png" alt="盆栽" width="70%">
+				<div id="score_q8"></div><br>
+				<article>整理收納的好處多多，不只可以讓我們的生活空間變大、更加認識自己，還可以在過程中掌握物品的數量、狀態及期效，省去重複購買的金錢及尋找物品的時間，過著真正清爽的生活，並獲得平靜的心靈。<br>
+					<a href="https://www.youtube.com/watch?v=fbsF9J-CllM" target="_blank">空間整理師阿好</a>分享了整理收納的5步驟：<br>
+					1.下架：把所有東西移開、拿出來<br>
+					2.分類：把所有物品做分類<br>
+					3.淘汰：捨棄用不到或重複的物品<br>
+					4.定位：常用的東西放好拿取的地方、不常用的放較高處或遠處<br>
+					5.收納：使用收納盒或紙箱將物品分類收納整齊<br>
+					還想了解更多整理收納的秘訣嗎？邀請你來參加<b>110/11/30(二) 13:20-15:10</b>的<b><a href="https://act.mhcc.nycu.edu.tw/activities/?activityId=251" target="_blank">整理環境－打造自己的放鬆小天地</a></b>講座，讓我們都能擁有好好專注、好好休息的好空間：）<br><br></article>
+					<div class="white-block finished-form" style="display:none">
+						<a href="https://docs.google.com/forms/d/e/1FAIpQLSd0SqLniRz3KCb23-_MgV3-_AtnNda-pE3qESIMA09tUvgfOQ/viewform?usp=pp_url" target="_blank">尋寶完成！抽獎請點我！</a>
+					</div>
+					<button class="button-style" onclick="goBackMission(8)">查看作答內容！</button>
+			</div>
+		</div>
+		<img id="complete8" class="complete" src="img/q8_undone.png">
+		<input type="image" class="go-home goback" src="img/gohome.png">
+		<a href="http://counsel.sa.nctu.edu.tw" class="website" target="new_window">陽明交大健康心理中心</a>
+	</div>
+
+	<div class="page" id="q7">
+		<h1 class="mission-title">守護能量的結界</h1>
+		<div class="content content-margin">
+			<div class="mission-content" id="description7">
+				<article>小麋鹿發現因為太在意他人評價，所以總是很難表達自己的感受、不敢拒絕別人，也常常勉強自己。<br>
+					他想，要是有個神祕的結界，讓他可以自在做自己，不再受他人評價影響就好了！
+				</article>
+				<button class="button-style" onclick="goMission(7)">點擊開始探險！</button>
+			</div>
+			<div class="mission-content" id="mission7" style="display:none">
+				<article>你擁有這樣的結界嗎？請進行下列檢測！如無法過關，請試著重新勾選能守護能量的方法。</article><br>
+				<form id="q7_form">
+					<input type="checkbox" id="q7_1" value="+5" onchange="q7()"/><span>受到無禮對待時，我會鼓起勇氣捍衛自身權益。</span><br>
+					<input type="checkbox" id="q7_2" value="-5" onchange="q7()"/><span>常以別人的評論來定義自己的價值。</span><br>
+					<input type="checkbox" id="q7_3" value="-5" onchange="q7()"/><span>別人對你求助時，覺得自己有義務幫他們解決問題。</span><br>
+					<input type="checkbox" id="q7_4" value="+5" onchange="q7()"/><span>我願意主動讓別人知道我的底線與原則，即使別人未必能理解。</span><br>
+					<input type="checkbox" id="q7_5" value="-5" onchange="q7()"/><span>拒絕別人時，會感到內疚。</span><br>
+					<input type="checkbox" id="q7_6" value="+5" onchange="q7()"/><span>即使沒有正當理由，只要自己不喜歡或不想要，也有權力以溫和而堅定的態度拒絕。</span><br>
+					<input type="submit" class="button-style" id="q7_submit" value="完成！" onclick="insert(7,6)">
+					<input type="submit" class="button-style" id="q7_nosubmit" value="查看衛教小語！" onclick="goEducation(7)">
+				</form>
+				<span id="q7_answer">
+					<div id="q71">· 受到無禮對待時，我會鼓起勇氣捍衛自身權益。</div>
+					<div id="q72">· 常以別人的評論來定義自己的價值。</div>
+					<div id="q73">· 別人對你求助時，覺得自己有義務幫他們解決問題。</div>
+					<div id="q74">· 我願意主動讓別人知道我的底線與原則，即使別人未必能理解。</div>
+					<div id="q75">· 拒絕別人時，會感到內疚。</div>
+					<div id="q76">· 即使沒有正當理由，只要自己不喜歡或不想要，也有權力以溫和而堅定的態度拒絕。</div>
+					<input type="submit" class="button-style" id="q7_nosubmit" value="查看衛教小語！" onclick="goEducation(7)">
+				</span>
+			</div>
+			<div class="mission-content" id="education7" style="display:none">
+				<img src="img/q7.png" alt="鳥叼著緞帶" width="70%">
+				<div id="score_q7"></div><br>
+				<article>如果一開始無法過關，代表你缺乏明確的「個人界線」。無法確定自己可以接受什麼、不能接受什麼，以及當別人越過這些界線時該如何應對，來保護自己不受他人的利用與侵犯。<br>
+				建立健康界線的關鍵在於：你必須把自己的感受和需求放在優先位置，清楚自己底線後，主動提出溝通。當別人的求助讓你感到勉強時，也要記得「每個人都必須為自己的人生負責。」而不需內疚。<br>
+				<a href="https://buzzorange.com/vidaorange/2018/06/06/keep-your-personal-boundaries/" target="_blank">以上摘自生活報橘，作者蔡芷庭</a><br>
+				想更深入探索自己的人際界線，打造守護能量的人際結界，也營造最舒適的人際互動嗎？快來報名<b>110/10/16(六)</b>由「愛心理」知名講師蕭婷文帶領的<b><a href="https://act.mhcc.nycu.edu.tw/activities/?activityId=246" target="_blank">「心靈結界－心理界線療癒工作坊」</a></b>，讓你跳脫人際紛擾、找回寧靜而茁壯的自我！</article>
+				<div class="white-block finished-form" style="display:none">
+					<a href="https://docs.google.com/forms/d/e/1FAIpQLSd0SqLniRz3KCb23-_MgV3-_AtnNda-pE3qESIMA09tUvgfOQ/viewform?usp=pp_url" target="_blank">尋寶完成！抽獎請點我！</a>
+				</div>
+				<button class="button-style" onclick="goBackMission(7)">查看作答內容！</button>
+			</div>
+		</div>
+		<img id="complete7" class="complete" src="img/q7_undone.png">
+		<input type="image" class="go-home goback" src="img/gohome.png">
+		<a href="http://counsel.sa.nctu.edu.tw" class="website" target="new_window">陽明交大健康心理中心</a>
+	</div>
+
+	<div class="page" id="q6">
+		<h1 class="mission-title">傳聲筒裡的愛</h1>
+		<div class="content content-margin">
+			<div class="mission-content" id="description6">
+				<article>待在家裡的時候，小麋鹿很想念森林中的同伴，尤其是他的情人--小露鹿～<br>
+					他每天最期待和小露鹿透過魔法傳聲筒談天說地。但沒想到，小露鹿今天卻因為和雲雀玩，錯過和小麋鹿約好要聊天的時間。小麋鹿很生氣卻只會板著臉不說話，小露鹿因為不喜歡小麋鹿這樣的溝通方式，也開始跟他冷戰⋯
+					</article>
+				<button class="button-style" onclick="goMission(6)">點擊開始探險！</button>
+			</div>
+			<div class="mission-content" id="mission6" style="display:none">
+				<article>請幫助小麋鹿可以在爭吵時有更好的回應。</article><br>
+				<form id="q6_form">
+					<input type="radio" id="A" name="q6_1" value="-10" required>A:「為什麼你都這樣？你是不是不愛我？我不想跟你講話。」<br>
+					<input type="radio" id="B" name="q6_1" value="-10">B:「你根本死性不改，我對你很失望！」<br>
+					<input type="radio" id="C" name="q6_1" value="1">C:「我目前不太想跟你談，我覺得很難受。」 <br>
+					<input type="radio" id="D" name="q6_1" value="10">D:「我們無法見面時，我很期待每天能一起講話的時光。所以當你遲到時，我感覺有點生氣，因為覺得好可惜。」<br>
+					<input type="submit" class="button-style" id="q6_submit" value="完成！" onclick="q6()">
+					<input type="submit" class="button-style" id="q6_nosubmit" value="查看衛教小語！" onclick="goEducation(6)">
+				</form>
+				<span id="q6_answer">
+					<div id="AA">A:「為什麼你都這樣？你是不是不愛我？我不想跟你講話。」</div>
+					<div id="BB">B:「你根本死性不改，我對你很失望！」</div>
+					<div id="CC">C:「我目前不太想跟你談，我覺得很難受。」</div>
+					<div id="DD">D:「我們無法見面時，我很期待每天能一起講話的時光。所以當你遲到時，我感覺有點生氣，因為覺得好可惜。」</div>
+				<input type="submit" class="button-style" id="q6_nosubmit" value="查看衛教小語！" onclick="goEducation(6)">
+				</span>
+			</div>
+			<div class="mission-content" id="education6" style="display:none">
+				<img src="img/q6.png" alt="愛心抱枕" width="70%">
+				<div id="score_q6"></div><br>
+				<article>伴侶溝通的時候，常常會被一時的情緒牽動，那些憤怒或是受傷的情緒默默的支配了你，而缺少了溝通與表達自己感受的機會。
+				親密關係溝通是彼此需要學習與練習，防疫期間一起學習親密關係中的溝通與共同需求，成為隔離時光理想情人！<br>
+				邀請在親密關係溝通中受困的你，一起參加<b>110/11/8(一) 13:20-15:10</b>的<b><a href="https://act.mhcc.nycu.edu.tw/activities/?activityId=250" target="_blank">成為防疫時光理想情人－親密關係溝通</a></b>講座，讓我們都能在愛裡找到更舒適的關係狀態</article>
+				<div class="white-block finished-form" style="display:none">
+					<a href="https://docs.google.com/forms/d/e/1FAIpQLSd0SqLniRz3KCb23-_MgV3-_AtnNda-pE3qESIMA09tUvgfOQ/viewform?usp=pp_url" target="_blank">尋寶完成！抽獎請點我！</a>
+				</div>
+				<button class="button-style" onclick="goBackMission(6)">查看作答內容！</button>
+			</div>
+		</div>
+		<img id="complete6" class="complete" src="img/q6_undone.png">
+		<input type="image" class="go-home goback" src="img/gohome.png">
+		<a href="http://counsel.sa.nctu.edu.tw" class="website" target="new_window">陽明交大健康心理中心</a>
+	</div>
+
+	<div class="page" id="q5">
+		<h1 class="mission-title">愛的魔法聊天室</h1>
+		<div class="content content-margin">
+			<div class="mission-content" id="description5">
+				<article>因為疫情，小麋鹿無法出門探險了...<br>
+					今天在家中，媽媽請他清洗晾乾家中珍藏的魔法斗篷，小麋鹿乖乖地洗好晾好。<br>
+					沒想到下午下起了雷陣雨，他卻忘記去收斗篷。媽媽發現後，板著臉坐在客廳，開始表達對小麋鹿的不滿...</article>
+				<button class="button-style" onclick="goMission(5)">點擊開始探險！</button>
+			</div>
+			<div class="mission-content" id="mission5" style="display:none">
+				<article>小麋鹿決定練習在學校聽到的薩提爾親子對話演講中所教導的技巧，來跟媽媽有個相互尊重和理解的溝通...</article><br>
+				<form id="q5_form">
+					<label>小麋鹿：媽媽是不是希望我能</label>
+					<select name="q5_1" id="q5_1" onchange="q5(1);" required>
+						<option value="">---請選擇---</option>
+						<option>說到做到</option>
+						<option>不要太在乎說過的話</option>
+					</select>
+					？<br>
+					<label>鹿媽：對！<br>
+					小麋鹿：收好斗篷就可以避免被雨淋濕，也表示我對你的</label>
+					<select name="q5_2" id="q5_2" onchange="q5(2);" required>
+						<option value="">---請選擇---</option>
+						<option>重視</option>
+						<option>忽略</option>
+					</select>？<br>
+					<label>鹿媽：是。<br>
+					小麋鹿：我也不喜歡斗篷被淋濕，真希望我能記得而沒有忘記這件事。<br>
+					鹿媽：我也希望你能做到。<br>
+					小麋鹿：喔，好，我下次會</label>
+					<select name="q5_3" id="q5_3" onchange="q5(3);" required>
+						<option value="">---請選擇---</option>
+						<option>做到自己答應的事</option>
+						<option>先出去探險，不用管答應過的事</option>
+					</select>。<br>
+					<input type="submit" class="button-style" id="q5_submit" value="完成！" onclick="q5(4)">
+					<input type="submit" class="button-style" id="q5_nosubmit" value="查看衛教小語！" onclick="goEducation(5)">
+				</form>
+				<span id="q5_answer">
+					小麋鹿：媽媽是不是希望我能
+					<u><b><span id="q5_1_ans"></span></b></u>？<br>
+					鹿媽：對！<br>
+					小麋鹿：收好斗篷就可以避免被雨淋濕，也表示我對你的
+					<u><b><span id="q5_2_ans"></span></b></u>？<br>
+					鹿媽：是。<br>
+					小麋鹿：我也不喜歡斗篷被淋濕，真希望我能記得而沒有忘記這件事。<br>
+					鹿媽：我也希望你能做到。<br>
+					小麋鹿：喔，好，我下次會
+					<u><b><span id="q5_3_ans"></span></b></u>。<br>
+					<input type="submit" class="button-style" id="q5_nosubmit" value="查看衛教小語！" onclick="goEducation(5)">
+				</span>
+			</div>
+			<div class="mission-content" id="education5" style="display:none">
+				<img src="img/q5.png" alt="雙杯子" width="70%">
+				<div id="score_q5"></div><br>
+				<article>全然的傾聽會讓對方感到被同理和支持，也能增加安全感和信任感。而透過【核對】的溝通主軸，去探索與理解對方的感受和想法，讓對方知道自己是被重視的，不只能安撫對方焦躁的心，更能透過溝通拉近彼此的距離，建立起充滿愛的連結與關係。<br>
+				邀請你來參加<b>110/9/29(三) 13:20-15:10</b>的<b><a href="https://act.mhcc.nycu.edu.tw/activities/?activityId=247" target="_blank">讓愛同行－薩提爾的親子對話</a></b>講座，讓我們一起提升溝通技能，在互動中增進愛的連結，拉近彼此的距離！</article>
+				<div class="white-block finished-form" style="display:none">
+					<a href="https://docs.google.com/forms/d/e/1FAIpQLSd0SqLniRz3KCb23-_MgV3-_AtnNda-pE3qESIMA09tUvgfOQ/viewform?usp=pp_url" target="_blank">尋寶完成！抽獎請點我！</a>
+				</div>
+				<button class="button-style" onclick="goBackMission(5)">查看作答內容！</button>
+			</div>
+		</div>
+		<img id="complete5" class="complete" src="img/q5_undone.png">
+		<input type="image" class="go-home goback" src="img/gohome.png">
+		<a href="http://counsel.sa.nctu.edu.tw" class="website" target="new_window">陽明交大健康心理中心</a>
+	</div>
+
+	<div class="page" id="q4">
+		<h1 class="mission-title">安眠的神奇夜晚</h1>
+		<div class="content content-margin">
+			<div class="mission-content" id="description4">
+				<article>電影看完後，小麋鹿開始看新聞，才發現大事不妙了，網路上不停重複播放著疫情擴散的報導，提醒大家病毒的強大傳染力及致死率，小麋鹿越聽越恐慌，也開始擔心自己會不會被感染，看著床邊搖曳的燭光，他翻來覆去難以入眠，突然間小麋鹿想起自己有一些可以幫助好好入睡的療癒小物和安眠秘訣，決定試試看...</article>
+				<button class="button-style" onclick="goMission(4)">點擊開始探險！</button>
+			</div>
+			<div class="mission-content" id="mission4" style="display:none">
+				<article>小麋鹿決定從之前收藏的安眠小物中挑選一個來幫助自己快快入睡，請你上傳與分享一張有助於放鬆好眠的物品照～</article><br>
+				<form >
+					<label for="img4" class="button-style" >選擇檔案</label>
+					<input type="file" accept="image/*" id="img4" onchange="previewImg(4);insertImg(4)" required><br><br>
+					<img id="preview4" class="preview" src="#"/>
+					<input type="submit" class="button-style" id="q4_submit" value="完成！" onclick="goEducation(4)">
+					<input type="submit" class="button-style" id="q4_nosubmit" value="查看衛教小語！" onclick="goEducation(4)">			
+				</form>
+			</div>
+			<div class="mission-content" id="education4" style="display:none">
+				<img src="img/q4.png" alt="蠟燭" width="70%">
+				<div id="score_q4"></div><br>
+				<article>良好的睡眠品質不僅能讓我們恢復活力，也能釋放一天下來所累積的壓力，透過一些小技巧，享受安眠並沒有那麼困難。<br>
+				邀請想要成為好眠達人的你來參加<b>110/10/13(三) 15:30-17:20</b>的<b><a href="https://act.mhcc.nycu.edu.tw/activities/?activityId=248" target="_blank">好夢正酣－教你壓力紓解與睡眠</a></b>的秘笈講座，讓我們一起掌握放鬆技巧，享受優質睡眠帶來美好時光！</article>
+				<div class="white-block finished-form" style="display:none">
+					<a href="https://docs.google.com/forms/d/e/1FAIpQLSd0SqLniRz3KCb23-_MgV3-_AtnNda-pE3qESIMA09tUvgfOQ/viewform?usp=pp_url" target="_blank">尋寶完成！抽獎請點我！</a>
+				</div>
+				<button class="button-style" onclick="goBackMission(4)">查看作答內容！</button>
+			</div>
+		</div>
+		<img id="complete4" class="complete" src="img/q4_undone.png">
+		<input type="image" class="go-home goback" src="img/gohome.png">
+		<a href="http://counsel.sa.nctu.edu.tw" class="website" target="new_window">陽明交大健康心理中心</a>
+	</div>
+
+	<div class="page" id="q3">
+		<h1 class="mission-title">Deer電影廳</h1>
+		<div class="content content-margin">
+			<div class="mission-content" id="description3">
+				<article>小麋鹿今天也到森林裡尋找他的動物同伴了，但大家今天都怪怪的，全部趕著要回家，沒有人願意停留下來跟他說話，他不知道怎麼了，回家後哭著跟爸媽說，爸媽只冷淡地回應他：「哭是弱小的動物，你敢哭就不是我的孩子」。他只好忍住了眼淚，默默打開筆電觀看最新的電影，他發現，透過電影情節的鋪陳，他漸漸融入情境中的角色，情緒舒坦了很多...</article>
+				<button class="button-style" onclick="goMission(3)">點擊開始探險！</button>
+			</div>
+			<div class="mission-content" id="mission3" style="display:none">
+				<article>請觀看這個影片片段，看完後請寫下情緒。</article><br>
+				<iframe width="100%" src="https://www.youtube.com/embed/9rElnI1a2lo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<form id="q3_form">
+					<input type="text" id="q3_1" name="q3_1" value="" required><br>
+					<label><a href="https://www.youtube.com/watch?v=9rElnI1a2lo" target="_blank">出處：阿狗阿貓 Agoamao</a></label><br>
+					<input type="submit" class="button-style" id="q3_submit" value="完成！" onclick="insert(3,1)">
+					<input type="submit" class="button-style" id="q3_nosubmit" value="查看衛教小語！" onclick="goEducation(3)">
+				</form>
+			</div>
+			<div class="mission-content" id="education3" style="display:none">
+				<img src="img/q3.png" alt="投影機" width="70%">
+				<div id="score_q3"></div><br>
+				<article>聽過電影治療嗎？看電影的七大健康好處：<br>
+					1.放鬆減焦慮<br>
+					2.解壓抗憂鬱<br>
+					3.釋放情緒<br>
+					4.改善人際關係<br>
+					5.提升正面能量<br>
+					6.訓練思辨能力<br>
+					7.找到目標動力<br>
+					<a href="https://exploringyourmind.com/film-therapy-benefits-watching-movies/" target="_blank">參考資料：Film Therapy: The Benefits of Watching Movies.</a><br>
+					人生如戲，電影是採用動態影像述說生命歷程的故事，是全球化休閒娛樂之一，也是許多人自我照顧的媒介。<br>
+					陽明交大諮商中心在<b>110/12/07(二)</b>有一場<b><a href="https://act.mhcc.nycu.edu.tw/activities/?activityId=252" target="_blank">最佳疫苗－人生必看最暖疫情電影賞析</a></b>，引導個人「認識電影」、「感受電影」，進而「應用電影」，啟發個人生命的反思與成長。</article>
+				<div class="white-block finished-form" style="display:none">
+					<a href="https://docs.google.com/forms/d/e/1FAIpQLSd0SqLniRz3KCb23-_MgV3-_AtnNda-pE3qESIMA09tUvgfOQ/viewform?usp=pp_url" target="_blank">尋寶完成！抽獎請點我！</a>
+				</div>
+				<button class="button-style" onclick="goBackMission(3)">查看作答內容！</button>
+			</div>
+		</div>
+		<img id="complete3" class="complete" src="img/q3_undone.png">
+		<input type="image" class="go-home goback" src="img/gohome.png">
+		<a href="http://counsel.sa.nctu.edu.tw" class="website" target="new_window">陽明交大健康心理中心</a>
+	</div>
+	
+	<div class="page" id="q2">
+		<h1 class="mission-title">夜精靈魔法枕</h1>
+		<div class="content content-margin">
+			<div class="mission-content" id="description2">
+				<article>今天依舊是精彩又刺激的一天。小麋鹿遇到了獵人，還好小精靈出現帶他逃跑了，回到家後，小麋鹿發現自己累積了越來越多的繁雜思緒和情緒，竟然遲遲無法入睡。就在此時，小精靈又出現了，借給他一個神奇的魔法枕頭，只要躺下後，不只可以很快睡著，而且睡得又香又甜，第二天還神采飛揚！</article>
+				<button class="button-style" onclick="goMission(2)">點擊開始探險！</button>
+			</div>
+			<div class="mission-content" id="mission2" style="display:none">
+				<article>你也想擁有魔法枕頭嗎？邀請你先進行自我睡眠品質評估，沒過關的話再試著從下列選項中點選有助睡眠的方法！</article><br>
+				<form id="q2_form">
+						<input type="checkbox" id="q2_1" value="-5" onchange="q2()"/><span>不容易入睡</span><br>
+						<input type="checkbox" id="q2_2" value="+5" onchange="q2()"/><span>躺在床上，我能試著讓腦海放空</span><br>
+						<input type="checkbox" id="q2_3" value="-5" onchange="q2()"/><span>當我半夜醒來時，很難再次入睡</span><br>
+						<input type="checkbox" id="q2_4" value="+5" onchange="q2()"/><span>即使有很多事情困擾著，我也會試著讓自己放鬆下來</span><br>
+						<input type="checkbox" id="q2_5" value="-5" onchange="q2()"/><span>即使經過整夜的睡眠，早上醒來我仍然感到疲倦</span><br>
+						<input type="checkbox" id="q2_6" value="+5" onchange="q2()"/><span>我期待閉上眼睛或入睡的感受</span><br>
+						<input type="checkbox" id="q2_7" value="-5" onchange="q2()"/><span>早上過早醒來</span><br>
+						<input type="checkbox" id="q2_8" value="-5" onchange="q2()"/><span>需要約一小時以上才能入睡</span><br>
+						<input type="checkbox" id="q2_9" value="+5" onchange="q2()"/><span>若有僵硬及腰酸背痛狀況時，我會做些伸展來舒緩</span><br>
+						<input type="checkbox" id="q2_10" value="+5" onchange="q2()"/><span>當不能入睡時，我會平常心看待</span><br>
+						<input type="submit" class="button-style" id="q2_submit" value="完成！" onclick="insert(2,10)">
+						<input type="submit" class="button-style" id="q2_nosubmit" value="查看衛教小語！" onclick="goEducation(2)">
+				</form>
+				<span id="q2_answer">
+					<div id="q21">· 不容易入睡</div>
+					<div id="q22">· 躺在床上，我能試著讓腦海放空</div>
+					<div id="q23">· 當我半夜醒來時，很難再次入睡</div>
+					<div id="q24">· 即使有很多事情困擾著，我也會試著讓自己放鬆下來</div>
+					<div id="q25">· 即使經過整夜的睡眠，早上醒來我仍然感到疲倦</div>
+					<div id="q26">· 我期待閉上眼睛或入睡的感受</div>
+					<div id="q27">· 早上過早醒來</div>
+					<div id="q28">· 需要約一小時以上才能入睡</div>
+					<div id="q29">· 若有僵硬及腰酸背痛狀況時，我會做些伸展來舒緩</div>
+					<div id="q210">· 當不能入睡時，我會平常心看待</div>
+					<input type="submit" class="button-style" id="q2_nosubmit" value="查看衛教小語！" onclick="goEducation(2)">
+				</span>
+			</div>
+			<div class="mission-content" id="education2" style="display:none">
+				<img src="img/q2.png" alt="枕頭" width="70%">
+				<div id="score_q2"></div><br>
+				<article>晚上睡不好，早上起來覺得累？你的潛意識可能累積了過多的雜念與壓力喔！催眠則是讓人在很放鬆的狀態下，把這段記憶從潛意識中提取出來。讓雜念和壓力都能獲得紓解。<br>
+				想要學習最實用的自我催眠技巧，達到「舒眠」與「放鬆減壓」的雙重效果嗎？<br>
+				快來報名<b>110/12/04(六)</b>由催眠心理師幽樹帶領的<b><a href="https://act.mhcc.nycu.edu.tw/activities/?activityId=245" target="_blank">「自癒魔法-舒眠減壓催眠沙龍」</a></b>，讓睡眠不再是你的困擾，而是釋放潛意識壓力、補給明日能量的美好時光！</article>
+				<div class="white-block finished-form" style="display:none">
+					<a href="https://docs.google.com/forms/d/e/1FAIpQLSd0SqLniRz3KCb23-_MgV3-_AtnNda-pE3qESIMA09tUvgfOQ/viewform?usp=pp_url" target="_blank">尋寶完成！抽獎請點我！</a>
+				</div>
+				<button class="button-style" onclick="goBackMission(2)">查看作答內容！</button>
+			</div>
+		</div>
+		<img id="complete2" class="complete" src="img/q2_undone.png">
+		<input type="image" class="go-home goback" src="img/gohome.png">
+		<a href="http://counsel.sa.nctu.edu.tw" class="website" target="new_window">陽明交大健康心理中心</a>
+	</div>
+
+	<div class="page" id="q1">
+		<h1 class="mission-title">迷幻療癒的魔法</h1>
+		<div class="content content-margin">
+			<div class="mission-content" id="description1">
+				<article>小麋鹿最喜歡在森林各處探險了，他今天為了採集最新鮮的蘑菇，還差點掉進山谷，今天真是既刺激又累人的一天。<br>今晚，回到他的森林小屋後，他想來點療癒自己的新鮮事，但是唱歌、泡澡、練瑜伽，他似乎都做膩了，請提供小麋鹿你的獨家療癒小魔法，幫助他恢復更多滿滿的活力吧！</article>
+				<button class="button-style" onclick="goMission(1)">點擊開始探險！</button>
+			</div>
+			<div class="mission-content" id="mission1" style="display:none">
+				<article>請描述3個可以讓自己獲得療癒或放鬆的方法，以及通常會怎麼做（ex:瑜珈、運動、聽音樂、唱歌、園藝、繪畫、美食、養寵物、芳香療癒、手作DIY...）</article><br>
+				<form id="q1_form">
+					<label for="q1_1">1.</label>
+					<input type="text" id="q1_1" name="q1_1" required><br>
+					<label for="q1_2">2.</label>
+					<input type="text" id="q1_2" name="q1_2" required><br>
+					<label for="q1_3">3.</label>
+					<input type="text" id="q1_3" name="q1_3" required><br>
+					<input type="submit" class="button-style" id="q1_submit" value="完成！" onclick="insert(1,3)">
+					<input type="submit" class="button-style" id="q1_nosubmit" value="查看衛教小語！" onclick="goEducation(1)">
+				</form>
+			</div>
+			<div class="mission-content" id="education1" style="display:none">
+				<img src="img/q1.png" alt="襪子" width="70%">
+				<div id="score_q1"></div><br>
+				<article>我們都在生命中偶遇許多的焦慮與無力時刻，盡全力去完成每一件事後難免會深感疲憊，這時我們需要探尋的是可以讓自己放鬆與療癒的方法，當我們舒緩自己的壓力後，就能帶著更好的自己往前走。<br>
+				<u>專屬本校教職員的正念瑜珈體驗來了～</u><br>
+				<b>110/11/26(五) 13:20-15:10</b>在學生活動中心2F聯誼廳有一場專屬教職員的<b><a href="https://act.mhcc.nycu.edu.tw/activities/?activityId=249" target="_blank">瑜珈工作坊</a></b>，歡迎大家一起來傾聽自己身心靈真實的聲音！</article>
+				<div class="white-block finished-form" style="display:none">
+					<a href="https://docs.google.com/forms/d/e/1FAIpQLSd0SqLniRz3KCb23-_MgV3-_AtnNda-pE3qESIMA09tUvgfOQ/viewform?usp=pp_url" target="_blank">尋寶完成！抽獎請點我！</a>
+				</div>
+				<button class="button-style" onclick="goBackMission(1)">查看作答內容！</button>
+			</div>
+		</div>
+		<img id="complete1" class="complete" src="img/q1_undone.png">
+		<input type="image" class="go-home goback" src="img/gohome.png">
+		<a href="http://counsel.sa.nctu.edu.tw" class="website" target="new_window">陽明交大健康心理中心</a>
+	</div>
+
+
+	<div class="page" id="information">
+		<input type="image" class="go-home goback" id="gohome-infor" src="img/gohome.png">
+		<input type="image" id="goInfor" class="complete" src="img/goinfor.png" onclick="goInformation()" style="display:none">
+
+		<div class="content" id="infor-content">
+			<div id="login-page">
+				<h2 class="title">小麋鹿的通行證-登入</h2>
+				<div>需要登入才能開始探險喔！</div>
+				<label><b>Email：</b></label>
+				<input type="text" id="email-login" oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')">
+				<div>
+					<form>
+						<label><b>密碼：</b></label>
+						<input type="password" id="password-login" autocomplete="on" oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')">
+						<button class="eye" onclick="ch_pwd_type()"></button>
+					</form>
+				</div>
+				<button id="confirm" class="button-style" onclick="confirm()">登入</button>
+				<button class="button-style" onclick="forgot_pwd()">忘記密碼</button><br><br>
+				<div id="warning-login" class="white-block" style="display: none;"></div>
+				<div onclick="goGameDescription()"><u>遊戲說明</u></div><br>
+				<div onclick="change_state()"><u>第一次玩？請創建帳號</u></div><br>
+				<a id="error_report" href="https://forms.gle/JC3b74U8uRrBv2636" target="new_window">遊戲發生問題？請點我</a>
+			</div>
+
+			<div id="make-page">
+				<div class="infor-column">
+					<h2 class="title">小麋鹿的通行證-創建</h2>
+					<span class="subject"><b>身分：</b></span>
+					<select class="infor" id="type" onchange="changeType()">
+						<option value="student" selected>陽明交大學生</option>
+						<option value="teacher">陽明交大教職員</option>
+						<option value="other">校外人士</option>
+					</select>
+				</div><br>
+				<label id="type-make"><b>學號：</b></label>
+				<input type="text" id="account-make" oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')"><br>
+				<label><b>Email：</b></label>
+				<input type="text" id="email-make" oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')">
+				<div>
+					<form>
+						<label><b>密碼：</b></label>
+						<input type="password" id="password-make" autocomplete="on" oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')">
+						<button class="eye" onclick="ch_pwd_type()"></button>
+					</form>
+				</div>
+				<button id="confirm" class="button-style" onclick="confirm()">創建帳號</button><br>
+				<div id="warning-make" class="white-block" style="display: none;"></div>
+				<div onclick="goGameDescription()"><u>遊戲說明</u></div><br>
+				<div onclick="change_state()"><u>已經遊玩過？請登入</u></div><br>
+				<a id="error_report" href="https://forms.gle/JC3b74U8uRrBv2636" target="new_window">遊戲發生問題？請點我</a>
+			</div>
+
+			<div id="infor-page">
+				<h2 class="title">小麋鹿的通行證</h2>
+				<div id="type-infor"></div>
+				<div id="account-infor"></div><br>
+				<label><b>Email：</b></label>
+				<div id="email-infor"></div>
+				<button class="button-style" onclick="logout()">登出</button><br><br>
+				<div onclick="goGameDescription()"><u>遊戲說明</u></div><br>
+				<a id="error_report" href="https://forms.gle/JC3b74U8uRrBv2636" target="new_window">遊戲發生問題？請點我</a>
+			</div>
+			
+			<div id="loading" style="display:none">
+				<h3 class="loading">loading...<br>請直放手機遊玩...</h3>
+				<img class="loading" src="img/table.png" margin="auto">
+			</div>
+		</div>
+		<div id="gameDescription" style="display:none">
+			<article>
+			即使外界充滿了未知與變化，小麋鹿仍勇敢展開了他的探險尋寶之旅，尋找迷霧森林中的8個寶藏。<br>
+			＊遊戲說明：<br>
+			1. 創建帳號成功即可獲得開始遊玩。<br>
+			2.「按照順序」閱讀情境說明後,依據指導語完成關卡任務,即可獲得一樣寶藏及不同的壓力值與療癒值。<br>
+			3. 只要於110/10/01~12/10期限內成功獲得8個寶藏，遊戲會跳出「尋寶完成抽獎請按我」視窗,點擊後填完問卷,即可參加抽獎！<br>
+			4. 還可憑尋寶完成畫面截圖到健康心理中心櫃台（新竹光復校區學生活動中心3F）領取限量茶飲品兌換券喔～<br>
+			<br>
+			<b>＊限量兌換獎：茶壜飲品兌換券 100份（已兌換完畢！）<br>
+			＊抽獎好禮：1.陶板屋雙人餐券、2.饗食天堂雙人餐券、3.威秀雙人電影票、4.融燭燈、5.原木麋鹿夜燈、6.好市多床上桌<br><br></b>
+			遊戲製作：陳存佩<br>
+			工作人員：彭思蓉 劉庭瑜 鄭雅馨 張瑜妏 黃馨儀<br>
+			美編設計：人間失腦（hgj）<br>
+			</article>
+		</div>
+		<a href="http://counsel.sa.nctu.edu.tw" class="website" target="new_window">陽明交大健康心理中心</a>
+	</div>
+
+	<div class="page" id="list">
+		<div class="content home-margin">
+			<h2 class="title">寶物圖鑑</h2>
+			<div>請直放手機(適用chrome、safari瀏覽器)<br>並請按照順序遊玩，以享有最佳體驗～</div>
+			<div onclick="goGameDescription()"><u>遊戲說明請點我</u></div>
+			<div class="columns">
+				<p class="list-column white-block" @click="gopage(3)">小麋鹿的檔案</p> 
+				<p class="list-column white-block" @click="gopage(4)" id="Q1">迷幻療癒的魔法</p>
+				<p class="list-column white-block" onclick="checkSequence(2)" id="Q2">夜精靈魔法枕</p>
+				<p class="list-column white-block" onclick="checkSequence(3)" id="Q3">DEER電影廳</p>
+				<p class="list-column white-block" onclick="checkSequence(4)" id="Q4">安眠的神奇夜晚</p>
+				<p class="list-column white-block" onclick="checkSequence(5)" id="Q5">愛的魔法聊天室</p>
+				<p class="list-column white-block" onclick="checkSequence(6)" id="Q6">傳聲筒裡的愛</p>
+				<p class="list-column white-block" onclick="checkSequence(7)" id="Q7">守護能量的結界</p>
+				<p class="list-column white-block" onclick="checkSequence(8)" id="Q8">清爽的魔幻殿堂</p>
+				<p class="list-column white-block" @click="gopage(12)" id="form-link-column" style="display:none">抽獎表單連結</p>
+			</div>
+		</div>
+		<a href="http://counsel.sa.nctu.edu.tw" class="website" target="new_window">陽明交大健康心理中心</a>
+	</div>
+
+	<div class="page" id="cover" onclick="goToList()"></div>
+
+	<button id="prev"></button>
+	<button id="next"></button>
+	
+	<div>
+		<table id="grade" rules="all">
+			<tr>
+				<th>療癒值</th>
+				<th id="heal"></th>
+			</tr>
+			<tr>
+				<th>壓力值</th>
+			<th id="stress"></th>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

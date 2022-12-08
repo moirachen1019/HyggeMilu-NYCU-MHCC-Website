@@ -1,0 +1,99 @@
+.page{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(rgba(255, 244, 224, 0.75), rgba(255, 244, 224, 0.75)), url("../img/newcover_notext.jpg");
+	-webkit-transition: -webkit-transform 500ms;
+	transition: transform 500ms;
+	-webkit-transform-origin: top left;
+	transform-origin: top left;
+}
+
+#cover{
+	background-image: url("../img/newcover.jpg");
+	height: 100%;
+	background-position: left top;
+	background-repeat: no-repeat;
+}
+
+.home-margin{
+	width: 80%;
+	height: 90%;
+}
+
+.content-margin{
+	width: 80%;
+	height: 90%;
+}
+
+.title{
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.mission-title{
+	width: 10%;
+    writing-mode: vertical-lr;
+    position: absolute;
+    top: 80px;
+    left: 20px;
+}
+
+.content{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.mission-content{
+	position: absolute;
+	top: 10%;
+	bottom: 5%;
+    right: 0%;
+    width: 75%;
+    max-height: 100%;
+    overflow-y: scroll;
+	font-size: 18px;
+	color: black;
+}
+
+.form-content{
+	position: absolute;
+	top: 50%;
+	left:50%;
+	width: 60%;
+	transform: translate(-50%, -50%);
+}
+
+#infor-content{
+	width: 50%;
+	max-height: 70%;
+}
+
+#gameDescription {
+    position: absolute;
+    top: 15%;
+    bottom: 5%;
+    right: 10%;
+    width: 60%;
+    max-height: 100%;
+    overflow-y: scroll;
+}
+
+
+.website{
+	display: block;
+	position: fixed;
+	bottom: 0%;
+	left: 20%;
+	width: 60%;
+	font-size: 15px;
+	text-align: center;
+}
+
+
+
+
